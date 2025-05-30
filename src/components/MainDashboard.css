@@ -1,0 +1,78 @@
+.main-dashboard {
+  flex: 1 1 0;
+  background: rgba(255,255,255,0.85);
+  padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  gap: 2rem;
+}
+
+.main-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.main-dashboard-date {
+  font-size: 1.1rem;
+  color: #23243a;
+  font-weight: 500;
+}
+
+.main-dashboard-overview {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.overview-card {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #23243a;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.08);
+  padding: 1.2rem 1.8rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  min-width: 120px;
+  text-align: center;
+}
+
+.main-dashboard-empty {
+  text-align: center;
+  color: #23243a;
+  margin: 2rem 0;
+}
+
+.main-dashboard-forecast-placeholder {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.forecast-placeholder {
+  background: #e3eafc;
+  color: #23243a;
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .main-dashboard {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    gap: 1.2rem;
+  }
+  .main-dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .main-dashboard-overview {
+    flex-direction: column;
+    gap: 1rem;
+  }
+} 

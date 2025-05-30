@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import CityInput from './components/CityInput'
-import WeatherCard from './components/WeatherCard'
+import DashboardLayout from './components/DashboardLayout'
 
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather'
@@ -71,12 +70,12 @@ function App() {
   return (
     <div className="app">
       <h1>SkyWatch</h1>
-      <div className="weather-container">
-        <CityInput onSubmit={handleCitySubmit} />
-        {loading && <p>Loading...</p>}
-        {error && <p className="error-message">{error}</p>}
-        <WeatherCard weather={weather} />
-      </div>
+      <DashboardLayout
+        weather={weather}
+        loading={loading}
+        error={error}
+        onCitySubmit={handleCitySubmit}
+      />
     </div>
   )
 }
