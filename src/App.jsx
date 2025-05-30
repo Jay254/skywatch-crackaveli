@@ -81,7 +81,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>SkyWatch</h1>
+      <div className="skywatch-title">SkyWatch</div>
       <DashboardLayout
         weather={weather}
         forecast={forecast}

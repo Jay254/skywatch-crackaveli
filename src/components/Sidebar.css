@@ -10,6 +10,9 @@
   justify-content: flex-start;
   gap: 2rem;
   box-shadow: 2px 0 16px 0 rgba(31, 38, 135, 0.10);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .sidebar-empty {
@@ -56,5 +59,6 @@
     width: 100%;
     align-items: center;
     padding: 1.2rem 0.5rem 1rem 0.5rem;
+    height: auto;
   }
 } 

@@ -1,0 +1,45 @@
+.hourly-forecast {
+  display: flex;
+  gap: 1rem;
+  margin: 1.2rem 0 1rem 0;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.hour-card {
+  background: #f7fafd;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.10);
+  padding: 0.7rem 1rem;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1rem;
+  color: #23243a;
+  border: 1px solid #e3eafc;
+}
+
+.hour-time {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.hour-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0.1rem 0;
+}
+
+.hour-temp {
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.hour-rain {
+  font-size: 0.93rem;
+  color: #4f8efc;
+} 
