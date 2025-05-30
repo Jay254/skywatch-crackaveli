@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import CityInput from './components/CityInput'
 import WeatherCard from './components/WeatherCard'
@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
+  // Fetch weather by city name
   const handleCitySubmit = async (city) => {
     setWeather(null)
     setError('')
@@ -31,6 +32,42 @@ function App() {
     }
   }
 
+  // Fetch weather by coordinates
+  const fetchWeatherByCoords = async (lat, lon) => {
+    setWeather(null)
+    setError('')
+    setLoading(true)
+    try {
+      const res = await fetch(`${API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+      if(!res.ok){
+        throw new Error('Could not get weather for your location')
+      }
+      const data = await res.json()
+      setWeather(data)
+    }
+    catch (err) {
+      setError(err.message || 'Failed to fetch weather')
+    }
+    finally {
+      setLoading(false)
+    }
+  }
+
+  // On mount, try to get user's geolocation
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords
+          fetchWeatherByCoords(latitude, longitude)
+        },
+        () => {
+          // User denied or error, do nothing
+        }
+      )
+    }
+  }, [])
+
   return (
     <div className="app">
       <h1>SkyWatch</h1>
@@ -38,7 +75,7 @@ function App() {
         <CityInput onSubmit={handleCitySubmit} />
         {loading && <p>Loading...</p>}
         {error && <p className="error-message">{error}</p>}
-        {weather && <WeatherCard weather={weather} />}
+        <WeatherCard weather={weather} />
       </div>
     </div>
   )
